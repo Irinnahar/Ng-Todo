@@ -1,0 +1,148 @@
+body {
+    background-image: url(image/background.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center left;
+    background-size: cover;
+    font-family: 'Mukta', sans-serif;
+}
+#mainBody {
+    background: rgba(255,255,255,.3);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    overflow: auto;
+}
+#container {
+    max-width: 890px;
+    margin: auto;
+    width: 100%;
+    margin: 3% auto;
+}
+.title {
+    background: rgba(0,0,0,.8);
+    color: gray;
+    text-align: center;
+    padding: 7px 20px;
+    border-radius: 7px 7px 0 0;
+    font-size: 20px;
+    font-family: 'Pacifico', cursive;
+}
+h2 {
+    letter-spacing: 1px;
+    margin: 6px;
+}
+#inputBox, #showList {
+    background: rgba(255,255,255,.6);
+    border-top: 2px solid beige;
+}
+#form {
+    width: 100%;
+    margin: 10px 40px;
+}
+#addNew{
+    font-size: 20px;
+    margin: 10px 0;
+    font-weight: 600;
+}
+input#task {
+    padding: 7px 10px;
+    width: 55%;
+    background: gainsboro;
+    border-radius: 5px;
+}
+#addBtn {
+    margin: 0;
+    width: 157px;
+    height: 47px;
+    background: #000;
+    font-size: 15px;
+    letter-spacing: .5px;
+}
+.todoList {
+    padding: 20px 40px;
+    width: 100%;
+    height: 400px;
+    overflow: auto;
+}
+ md-checkbox.md-checked .md-icon, md-checkbox.md-checked .md-ink-ripple {
+    background-color: rgba(0,0,0,0.87);
+    color:rgba(0,0,0,0.87);
+}
+i.fa {
+    font-size: 23px;
+    margin: 30px 11px;
+    cursor: pointer;
+}
+.fonticon {
+    cursor: auto;
+}
+tr {
+    border-bottom: 1px solid black;
+}
+table {
+    width: 100%;
+}
+#task {
+    width: 82%;
+    vertical-align: middle;
+}
+#checkbox {
+    vertical-align: middle;
+    padding-top: 14px;
+    width: 5%;
+}
+md-content.md-default-theme, md-content{
+	background-color: rgba(0,0,0,.8);
+
+}
+md-content.md-padding.ng-scope._md {
+    background-color: rgba(255,255,255,.1);
+    padding: 0;
+}
+ md-tabs .md-tab{ color: darkgray;}
+ md-tabs .md-tab.md-active{color: white;}
+ md-tabs-canvas {
+    margin: 0 40px;
+}
+md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar{
+    color: gainsboro;
+    background: brown;
+}
+#addAlert, #deleteAlert{
+	color: crimson;
+    padding-left: 20px;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: .5px;
+
+}
+#deleteAlert{
+	text-align: center;
+    display: block;
+}
+md-checkbox.md-default-theme.md-checked .md-icon:after, md-checkbox.md-checked .md-icon:after {
+    border-color: darkgray;
+}
+.done
+{
+  text-decoration: line-through;
+}
+#successMsg {
+    width: 250px;
+    height: 38px;
+    padding: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    color: crimson;
+    margin-top: 5px;
+}
+#indexNo{
+	vertical-align: middle;
+    padding-bottom: 0;
+    width: 5%;
+    font-weight: bold;
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Ng Todo App</title>
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Pacifico|Mukta" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
+
+	    <!-- Angular Material requires Angular.js Libraries -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+		<script src="app.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+	</head>
+	<body ng-app="todoApp" ng-controller="todoCtrl">
+		<md-whiteframe id="mainBody" class="md-whiteframe-9dp"  >
+	    	<div id="container">
+	    		<div class="title"> 
+	    			<h2>TODO APP</h2>
+	    		</div>
+	    		<md-whiteframe id="inputBox" class="md-whiteframe-3dp form"  layout layout-align="center center">
+			   		<div id="form">
+						<p id="addNew">Add a new task</p>
+						<input type="text" id="task" ng-model="addYourTask">
+						<span id="addAlert">{{addAlert}}</span>
+						<span id="addAlert">{{updateAlert}}</span>
+						<p>
+							<md-button id="addBtn" ng-show= "showAdd" ng-click="addTask()"  class="md-raised md-primary">Add task</md-button>
+							<md-button id="addBtn" ng-show= "!showAdd" ng-click="updateTask()" class="md-raised md-primary">Update</md-button>
+						</p>
+					</div>
+			  	</md-whiteframe>
+				<div ng-cloak>
+				  <md-content>
+				    <md-tabs md-dynamic-height md-border-bottom>
+				      <md-tab label="All Tasks">
+				        <md-content class="md-padding">
+				          	<md-whiteframe id="showList" class="md-whiteframe-3dp list"  layout layout-align="center center">
+						   		<div class="todoList">
+									<div id="addNew">
+										Todo List Item 
+									</div>
+									<h3>You have {{todos.length}} task in total </h3>
+									<table>
+										<tr ng-repeat="todo in todos track by $index">
+											<td id="checkbox">
+												<md-checkbox 
+													aria-label="Checkbox 1" 
+													ng-click="checkBox(todo, $index); showAlert($event)" 
+													ng-model='checked' 
+													ng-disabled="checked"> 
+												</md-checkbox>
+											</td>
+											<td id="task" ng-class='{done: checked}'> <!--  -->
+												<p>{{ todo.task }}</p>					          
+											</td>
+											<td id="fonticon">		
+									          	<i class="fa fa-pencil-square-o" aria-hidden="true" ng-click = "editTask($index,todo )"></i>
+									          	<i class="fa fa-trash" aria-hidden="true" ng-click= "deleteTask($index)"></i>  
+											</td>
+											<md-divider></md-divider>
+										</tr>										
+									</table>
+									<span id="deleteAlert">{{deleteAlert}}</span>
+								</div>
+		  					</md-whiteframe>
+				          
+				        </md-content>
+				      </md-tab>
+				      <!-- active List -->
+				      <md-tab label="Active Tasks">
+				        <md-content class="md-padding">
+				          	<md-whiteframe id="showList" class="md-whiteframe-3dp list"  layout layout-align="center center">
+						   		<div class="todoList">
+									<div id="addNew">
+										Active task list
+									</div>
+									<table>
+										<tr ng-repeat="active in activeTasks track by $index">
+											<td id="indexNo">
+												{{$index+1}} . 
+											</td>
+											<td id="task">
+												<p>{{ active.task }}</p>					         
+											</td>
+											<td id="fonticon">		
+									          	<i class="fa fa-pencil-square-o" aria-hidden="true" ng-click = "editTask($index,active )"></i>
+											</td>
+											<md-divider></md-divider>	
+										</tr>
+									</table>
+								</div>
+		  					</md-whiteframe>
+				        </md-content>
+				      </md-tab>
+				      <!-- remove items -->
+				     <md-tab label="Completed Tasks">
+				        <md-content class="md-padding">
+				          	<md-whiteframe id="showList" class="md-whiteframe-3dp list"  layout layout-align="center center">
+						   		<div class="todoList">
+									<div id="addNew">
+										Complited Tasks
+									</div>
+									<table>
+										<tr ng-repeat="completedTask in completedTasks track by $index">
+											<td id="indexNo">
+												{{$index+1}} . 
+											</td>
+											<td id="task">
+												<p>{{ completedTask.task }}</p>						          
+											</td>
+											<td id="fonticon">		
+									          	<i class="fa fa-trash" aria-hidden="true" ng-click= "deleteCompleteTask($index)"></i>  
+											</td>
+										</tr>										
+									</table>
+									<span id="deleteAlert">{{deleteAlert}}</span>
+								</div>
+		  					</md-whiteframe>				          
+				        </md-content>
+				      </md-tab>
+				    </md-tabs>
+				  </md-content>
+				</div>	  	
+	  		</div>
+	  	</md-whiteframe>	  	
+	</body>
+</html>
